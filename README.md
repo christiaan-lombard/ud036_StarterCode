@@ -12,7 +12,10 @@ git clone https://github.com/christiaan-lombard/udacityproject-movie-trailer-web
 ```
 
 
+## Resources
 
+ - [TMDb: Movie Database API](https://www.themoviedb.org/documentation/api)
+ - [TMDb: API Docs](https://developers.themoviedb.org/3/getting-started/introduction)
 
 
 
