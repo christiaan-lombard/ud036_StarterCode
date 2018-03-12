@@ -3,6 +3,7 @@ import urllib
 import json
 from media import Movie
 
+
 class TMDB():
 
     base_url = "https://api.themoviedb.org/3"
