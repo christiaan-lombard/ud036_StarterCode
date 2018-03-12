@@ -11,7 +11,7 @@ class TMDB():
     def __init__(self, api_key):
         self.api_key = api_key
     
-    def popular_movies(self):
+    def list_popular_movies(self):
         response = self._request("movie/popular", {})
         return self._convert_movie_response(response)
 
@@ -23,9 +23,9 @@ class TMDB():
                 Movie(
                     result['title'], 
                     result['overview'], 
-                    result['release_date'], 
                     self.image_url + result['poster_path'],
-                    ""
+                    result['release_date'], 
+                    None
                 )
             )
         return movies
@@ -34,7 +34,7 @@ class TMDB():
     def _request(self, slug, params):
         params['api_key'] = self.api_key
         url = self.base_url + "/" + slug + "?" + urllib.urlencode(params)
-        print(url)
+        # print(url)
         conn = urllib.urlopen(url)
         result = json.load(conn)
         conn.close()

@@ -1,15 +1,38 @@
 # Udacity Project - Movie Trailer Website
 
+This is my project submission for the Udacity Fullstack Developer Nanodegree,
+Fundamentals module.
+
+## What does it do?
+
+ - Make a list of static Movie instances containing title, overview, youtube_url and release date 
+ - Get a list of popular movies from TMDB and convert to Movie instances
+ - Render the HTML to display the list of movies
+ - Open a browser to display the HTML
 
 
+## Install & Run
 
-
-## Installation
-
-Clone this repository
+Clone this repository:
 ```
 git clone https://github.com/christiaan-lombard/udacityproject-movie-trailer-website
 ```
+
+Go to the project root:
+```
+cd .\udacityproject-movie-trailer-website
+```
+
+Run the __init__ Python file:
+```
+python .\src\__init__.py
+```
+
+## Screenshots
+
+![Screenshot Home](screenshots/screenshot_home.png)
+![Screenshot Open Item](screenshots/screenshot_open_item.png)
+![Screenshot Trailer](screenshots/screenshot_trailer.png)
 
 
 ## Resources
