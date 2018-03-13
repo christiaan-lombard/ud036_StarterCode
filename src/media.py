@@ -2,7 +2,7 @@
 
 class Video():
     """A model containing generic video information
-    
+
     Attributes:
         id (string): A unique id
         title (string): Official title
@@ -21,7 +21,7 @@ class Video():
 
 class Movie(Video):
     """A model containing movie information
-    
+
     Attributes:
         id (string): A unique id
         title (string): The movie's official title
