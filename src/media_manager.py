@@ -93,10 +93,8 @@ class MediaManager():
 
         # find the trailer url in video results
         for video in response['videos']['results']:
-            # print video['site'] + ' ' + video['type']
             if(video['type'] == 'Trailer' and video['site'] == 'YouTube'):
                 youtube_url = 'https://www.youtube.com/watch?v=' + video['key']
-                print youtube_url
 
         return Movie(
             response['id'],
