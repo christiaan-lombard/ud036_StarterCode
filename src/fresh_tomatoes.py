@@ -213,7 +213,7 @@ main_page_content = '''
 </html>
 '''
 
-# 
+#
 # A single movie entry html template
 movie_tile_content = '''
 <div class="movie-tile">
@@ -250,7 +250,7 @@ def create_movie_tiles_content(movies):
             youtube_id_match = youtube_id_match or re.search(
                 r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
             trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
-                                else None)
+                                  else None)
             trailer_button = trailer_button_content.format(
                 trailer_youtube_id=trailer_youtube_id
             )
@@ -274,9 +274,9 @@ def open_movies_page(favorite_movies, popular_movies):
 
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
-            favorite_movie_tiles=create_movie_tiles_content(favorite_movies),
-            popular_movie_tiles=create_movie_tiles_content(popular_movies)
-        )
+        favorite_movie_tiles=create_movie_tiles_content(favorite_movies),
+        popular_movie_tiles=create_movie_tiles_content(popular_movies)
+    )
 
     # Output the file
     output_file.write(main_page_head + rendered_content)
