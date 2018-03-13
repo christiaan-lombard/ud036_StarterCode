@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+__author__ = "Christiaan Lombard <base1.christiaan@gmail.com>"
 
 
 class Video():

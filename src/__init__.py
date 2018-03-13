@@ -1,7 +1,13 @@
+#!/usr/bin/env python
+
+"""Application init module"""
+
 
 from tmdb import TMDB
 from media_manager import MediaManager
 import fresh_tomatoes
+
+__author__ = "Christiaan Lombard <base1.christiaan@gmail.com>"
 
 
 # initialize api and media manager

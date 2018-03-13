@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+
+"""TMDB API module"""
 
 import urllib
 import json
 from media import Movie
+
+__author__ = "Christiaan Lombard <base1.christiaan@gmail.com>"
 
 
 class TMDB():

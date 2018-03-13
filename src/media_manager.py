@@ -1,5 +1,11 @@
+#!/usr/bin/env python
+
+"""The media_manager module contains the MediaManager class"""
+
 from media import Movie
 from tmdb import TMDB
+
+__author__ = "Christiaan Lombard <base1.christiaan@gmail.com>"
 
 
 class MediaManager():
