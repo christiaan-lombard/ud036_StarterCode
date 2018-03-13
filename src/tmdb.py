@@ -10,8 +10,10 @@ class TMDB():
     See: https://www.themoviedb.org/documentation/api
 
     Attributes:
-        base_url -- The base url for making api requests
-        image_url -- The base url for getting images
+        base_url (string): The base url for making api requests
+        image_url (string): The base url for getting images
+        api_key (string): The api key issued by TMDB to authorize
+                        API requests
 
     """
 
@@ -19,12 +21,7 @@ class TMDB():
     image_url = "http://image.tmdb.org/t/p/w300"
 
     def __init__(self, api_key):
-        """Create a new TMDB instance
-
-        Arguments:
-            api_key {string} -- The api key issued by TMDB to authorize
-                                API requests
-        """
+        """Create a new TMDB instance"""
 
         self.api_key = api_key
 
@@ -32,7 +29,7 @@ class TMDB():
         """Get the detailed information of a movie
 
         Arguments:
-            id {integer} -- The TMDB movie id
+            id (integer): The TMDB movie id
 
         Returns:
             dict -- The detailed information about the movie
@@ -63,8 +60,8 @@ class TMDB():
         """Sends an API request
 
         Arguments:
-            slug {string} -- Part of the url to be appended to the base_url
-            params {dict} -- Parameters added to the request as a query string
+            slug (string): Part of the url to be appended to the base_url
+            params (dict): Parameters added to the request as a query string
 
         Returns:
             dict -- The JSON decoded response

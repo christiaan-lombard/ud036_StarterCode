@@ -6,7 +6,8 @@ class MediaManager():
     """Manages user media
 
     Attributes:
-        favorite_ids -- Static list of favorite movie ids
+        favorite_ids (list): Static list of favorite movie ids
+        api (TMBD): The TMDB API wrapper to use
     """
 
     favorite_ids = [
@@ -18,11 +19,7 @@ class MediaManager():
     ]
 
     def __init__(self, api):
-        """Create a MovieManager instance
-
-        Arguments:
-            api {TMBD} -- The TMDB API wrapper to use
-        """
+        """Create a MovieManager instance"""
 
         self.api = api
 
@@ -58,7 +55,7 @@ class MediaManager():
         """Convert a list of movies API response to a list of Movie instances
 
         Arguments:
-            response {dict} -- The API response containing movie results
+            response (dict): The API response containing movie results
 
         Returns:
             list -- List of Movie instances
@@ -83,7 +80,7 @@ class MediaManager():
         """Convert a movie API detail response to a Movie instance
 
         Arguments:
-            response {dict} -- The API response containing movie results
+            response (dict): The API response containing movie results
 
         Returns:
             Movie -- Movie instance
