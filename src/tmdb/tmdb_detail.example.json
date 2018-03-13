@@ -1,0 +1,94 @@
+{
+    "adult": false,
+    "backdrop_path": "/dbBwK83VsgkDPvDLk9FcpzTDExh.jpg",
+    "belongs_to_collection": {
+        "id": 2344,
+        "name": "The Matrix Collection",
+        "poster_path": "/lh4aGpd3U9rm9B8Oqr6CUgQLtZL.jpg",
+        "backdrop_path": "/RhUxjzNojIJsdZSYTn0CQvdKsn.jpg"
+    },
+    "budget": 63000000,
+    "genres": [
+        {
+            "id": 28,
+            "name": "Action"
+        },
+        {
+            "id": 878,
+            "name": "Science Fiction"
+        }
+    ],
+    "homepage": "http://www.warnerbros.com/matrix",
+    "id": 603,
+    "imdb_id": "tt0133093",
+    "original_language": "en",
+    "original_title": "The Matrix",
+    "overview": "Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth.",
+    "popularity": 22.073921,
+    "poster_path": "/gynBNzwyaHKtXqlEKKLioNkjKgN.jpg",
+    "production_companies": [
+        {
+            "id": 79,
+            "logo_path": "/tpFpsqbleCzEE2p5EgvUq6ozfCA.png",
+            "name": "Village Roadshow Pictures",
+            "origin_country": ""
+        },
+        {
+            "id": 372,
+            "logo_path": null,
+            "name": "Groucho II Film Partnership",
+            "origin_country": ""
+        },
+        {
+            "id": 1885,
+            "logo_path": "/gMQ3oAjFyLIToDgrMKZgSCta3gT.png",
+            "name": "Silver Pictures",
+            "origin_country": ""
+        },
+        {
+            "id": 6194,
+            "logo_path": "/22cVnM7fi1YioSlligXuH6nQTZY.png",
+            "name": "Warner Bros.",
+            "origin_country": "US"
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "AU",
+            "name": "Australia"
+        },
+        {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+        }
+    ],
+    "release_date": "1999-03-30",
+    "revenue": 463517383,
+    "runtime": 136,
+    "spoken_languages": [
+        {
+            "iso_639_1": "en",
+            "name": "English"
+        }
+    ],
+    "status": "Released",
+    "tagline": "Welcome to the Real World.",
+    "title": "The Matrix",
+    "video": false,
+    "vote_average": 8,
+    "vote_count": 10575,
+    "videos": {
+        "results": [
+            {
+                "id": "58529dea92514146c9011ed9",
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "key": "m8e-FF8MsqU",
+                "name": "Matrix Trailer HD (1999)",
+                "site": "YouTube",
+                "size": 720,
+                "type": "Trailer"
+            }
+        ]
+    }
+}

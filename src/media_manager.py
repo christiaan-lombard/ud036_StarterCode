@@ -1,49 +1,108 @@
 from media import Movie
+from tmdb import TMDB
 
 
 class MediaManager():
+    """Manages user media
 
-    def list_favourite_movies(self):
-        """ Get a static list of movies """
+    Attributes:
+        favorite_ids -- Static list of favorite movie ids
+    """
+
+    favorite_ids = [
+        13183,
+        4935,
+        9900,
+        75612,
+        603
+    ]
+
+    def __init__(self, api):
+        """Create a MovieManager instance
+
+        Arguments:
+            api {TMBD} -- The TMDB API wrapper to use
+        """
+
+        self.api = api
+
+    def list_popular_movies(self):
+        """Get a list of popular movies
+
+        Returns:
+            list -- List of Movie instances
+        """
+
         movies = []
-        movies.append(
-            Movie(
-            "Watchmen",
-            '''In a gritty and alternate 1985 the glory days of costumed 
-            vigilantes have been brought to a close by a government 
-            crackdown, but after one of the masked veterans is brutally 
-            murdered, an investigation into the killer is initiated. The 
-            reunited heroes set out to prevent their own destruction, 
-            but in doing so uncover a sinister plot that puts 
-            all of humanity in grave danger.''',
-            "http://image.tmdb.org/t/p/w300/1QqwJBv5a6ddgzaT6cLytJioyrJ.jpg",
-            "2009-03-05",
-            "https://www.youtube.com/watch?v=PVgUZ2NSzBo"
-            )
-        )
-        movies.append(
-            Movie(
-            "Howl's Moving Castle",
-            '''When Sophie, a shy young woman, is cursed with an old body by 
-            a spiteful witch, her only chance of breaking the spell lies with 
-            a self-indulgent yet insecure young wizard and his companions in 
-            his legged, walking home.''',
-            "http://image.tmdb.org/t/p/w300/iMarB2ior30OAXjPa7QIdeyUfM1.jpg", 
-            "2004-11-19",
-            "https://www.youtube.com/watch?v=bHTrnAVPens"
-            )
-        )
-        movies.append(
-            Movie(
-            "Grandma's Boy",
-            '''Even though he's 35, Alex acts more like he's 13, spending 
-            his days as the world's oldest video game tester and his 
-            evenings developing the next big Xbox game. But he gets 
-            kicked out of his apartment and is forced to move in 
-            with his grandmother.''',
-            "http://image.tmdb.org/t/p/w300/9Z0Q9uIH4il75dfPVqFhVKljfY.jpg", 
-            "2006-01-06",
-            "https://www.youtube.com/watch?v=sEA_g1UK64k"
-            )
-        )
+        list_response = self.api.list_popular_movies()
+        for result in list_response['results']:
+            detail_response = self.api.get_movie_details(result['id'])
+            movies.append(self._convert_movie_detail(detail_response))
         return movies
+
+    def list_favorite_movies(self):
+        """Get a list of favorite movies
+
+        Returns:
+            list -- List of Movie instances
+        """
+
+        movies = []
+        # from the list of movie ids, get the detail of each movie
+        for id in self.favorite_ids:
+            detail_response = self.api.get_movie_details(id)
+            movies.append(self._convert_movie_detail(detail_response))
+        return movies
+
+    def _convert_movie_results(self, response):
+        """Convert a list of movies API response to a list of Movie instances
+
+        Arguments:
+            response {dict} -- The API response containing movie results
+
+        Returns:
+            list -- List of Movie instances
+        """
+
+        results = response['results']
+        movies = []
+        for result in results:
+            movies.append(
+                Movie(
+                    result['id'],
+                    result['title'],
+                    result['overview'],
+                    TMDB.image_url + result['poster_path'],
+                    result['release_date'],
+                    None
+                )
+            )
+        return movies
+
+    def _convert_movie_detail(self, response):
+        """Convert a movie API detail response to a Movie instance
+
+        Arguments:
+            response {dict} -- The API response containing movie results
+
+        Returns:
+            Movie -- Movie instance
+        """
+
+        youtube_url = None
+
+        # find the trailer url in video results
+        for video in response['videos']['results']:
+            # print video['site'] + ' ' + video['type']
+            if(video['type'] == 'Trailer' and video['site'] == 'YouTube'):
+                youtube_url = 'https://www.youtube.com/watch?v=' + video['key']
+                print youtube_url
+
+        return Movie(
+            response['id'],
+            response['title'],
+            response['overview'],
+            TMDB.image_url + response['poster_path'],
+            response['release_date'],
+            youtube_url
+        )
